@@ -1,0 +1,28 @@
+
+{
+  "id": "canvas-fade-in-out",
+  "name": "canvas-fade-in-out",
+  "title": "Canvas Fade In and Out",
+  "description": "Drop cards onto the canvas as tokens",
+  "authors": [{"name":"Xaukael"}],
+  "version": "0.0.0",
+	"socket": true,
+  "compatibility": {
+      "minimum": "10",
+      "verified": "10"
+    },
+	"socket": true,
+  "scripts": ["canvas-fade-in-out.js"],
+  "relationships": {
+      "requires": [
+					{
+              "id": "socketlib",
+              "type": "module",
+              "manifest": "https://raw.githubusercontent.com/manuelVo/foundryvtt-socketlib/master/module.json"
+          }
+      ]
+  },
+  "url": "https://github.com/xaukael/canvas-fade-in-out/",
+  "manifest": "https://github.com/xaukael/dcanvas-fade-in-out/raw/main/module.json",
+  "download": "https://github.com/xaukael/canvas-fade-in-out/raw/main/canvas-fade-in-out.zip"
+}
