@@ -11,16 +11,9 @@
       "minimum": "10",
       "verified": "10"
     },
-	"socket": true,
   "scripts": ["canvas-fade-in-out.js"],
   "relationships": {
-      "requires": [
-					{
-              "id": "socketlib",
-              "type": "module",
-              "manifest": "https://raw.githubusercontent.com/manuelVo/foundryvtt-socketlib/master/module.json"
-          }
-      ]
+      "requires": []
   },
   "url": "https://github.com/xaukael/canvas-fade-in-out/",
   "manifest": "https://github.com/xaukael/dcanvas-fade-in-out/raw/main/module.json",

@@ -5,12 +5,12 @@ var fadeCanvas = function() {
   if (game.settings.get('canvas-fade-in-out', 'visible')) $("#board").fadeIn(game.settings.get('canvas-fade-in-out', 'duration'));
   else $("#board").fadeOut(game.settings.get('canvas-fade-in-out', 'duration'));
 }
-
+/*
 Hooks.once("socketlib.ready", () => {
 	window.socketForCanvasFade = socketlib.registerModule("canvas-fade-in-out");
 	window.socketForCanvasFade.register("fadeCanvas", fadeCanvas);
 });
-
+*/
 Hooks.on('canvasInit', (canvas)=>{
   if (game.user.isGM) return;
   if (game.settings.get('canvas-fade-in-out', 'visible')) return;
@@ -26,7 +26,10 @@ Hooks.once("setup", async () => {
     config: false,
     type: Boolean,
     default: true,
-    onChange: value => { window.socketForCanvasFade.executeForOthers("fadeCanvas"); }
+    onChange: value => { 
+      fadeCanvas()
+      //window.socketForCanvasFade.executeForOthers("fadeCanvas"); 
+    }
   });
   game.settings.register('canvas-fade-in-out', 'duration', {
     name: `Fade Duration`,
