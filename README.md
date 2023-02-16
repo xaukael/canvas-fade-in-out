@@ -4,7 +4,7 @@ This module allows for easy hiding of the canvas for players. It has options for
 
 Here is an example macro that will toggle a fade of the canvas to grey over 1 second.
 ````
-await game.settings.set('canvas-fade-in-out', 'background', 'grey')
+await game.settings.set('canvas-fade-in-out', 'background', 'black')
 await game.settings.set('canvas-fade-in-out', 'duration', 1000)
 await game.settings.set('canvas-fade-in-out', 'visible', !game.settings.get('canvas-fade-in-out', 'visible'))
 ui.notifications.notify(`Canvas ${game.settings.get('canvas-fade-in-out', 'visible')?'is':'is not'} visible to players`)
