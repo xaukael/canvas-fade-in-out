@@ -5,11 +5,11 @@
   "title": "Canvas Fade In and Out",
   "description": "Drop cards onto the canvas as tokens",
   "authors": [{"name":"Xaukael"}],
-  "version": "1.1.0",
+  "version": "1.1.1",
 	"socket": true,
   "compatibility": {
       "minimum": "10",
-      "verified": "10"
+      "verified": "11"
     },
   "scripts": ["canvas-fade-in-out.js"],
   "relationships": {
