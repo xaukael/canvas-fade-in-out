@@ -1,7 +1,9 @@
 
 var fadeCanvas = function() {
   if (game.user.isGM && !game.settings.get('canvas-fade-in-out', 'forGM')) return;
-  $('body').css({background:game.settings.get('canvas-fade-in-out', 'background')})
+  let background = game.settings.get('canvas-fade-in-out', 'background')
+  if (background.includes(';')) $('#canvas-fade-style').text(`body{${background}}`)
+  else $('#canvas-fade-style').text(`body{background:${background};}`)
   if (game.settings.get('canvas-fade-in-out', 'visible')) $("#board").fadeIn(game.settings.get('canvas-fade-in-out', 'duration'));
   else $("#board").fadeOut(game.settings.get('canvas-fade-in-out', 'duration'));
 }
@@ -9,6 +11,10 @@ var fadeCanvas = function() {
 Hooks.on('canvasInit', (canvas)=>{
   if (game.user.isGM && !game.settings.get('canvas-fade-in-out', 'forGM')) return;
   if (game.settings.get('canvas-fade-in-out', 'visible')) return;
+  $('body').append(`<style id="canvas-fade-style"></style>`)
+  let background = game.settings.get('canvas-fade-in-out', 'background')
+  if (background.includes(';')) $('#canvas-fade-style').text(`body{${background}}`)
+  else $('#canvas-fade-style').text(`body{background:${background};}`)
   $('body').css({background:game.settings.get('canvas-fade-in-out', 'background')})
   $("#board").hide();
 });
@@ -52,7 +58,10 @@ Hooks.once("setup", async () => {
     config: true,
     type: String,
     default: 'black',
-    onChange: value => {$('body').css({background:value}) }
+    onChange: value => {
+      if (value.includes(';')) $('#canvas-fade-style').text(`body{${value}}`)
+      else $('#canvas-fade-style').text(`body{background:${value};}`)
+    }
   });
 
 });
