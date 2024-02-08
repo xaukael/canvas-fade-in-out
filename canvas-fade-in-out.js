@@ -9,9 +9,9 @@ var fadeCanvas = function() {
 }
 
 Hooks.on('canvasInit', (canvas)=>{
+  if (!$('#canvas-fade-style').length) $('body').append(`<style id="canvas-fade-style"></style>`)
   if (game.user.isGM && !game.settings.get('canvas-fade-in-out', 'forGM')) return;
   if (game.settings.get('canvas-fade-in-out', 'visible')) return;
-  if (! $('#canvas-fade-style').length) $('body').append(`<style id="canvas-fade-style"></style>`)
   let background = game.settings.get('canvas-fade-in-out', 'background')
   if (background.includes(';')) $('#canvas-fade-style').text(`body{${background}}`)
   else $('#canvas-fade-style').text(`body{background:${background};}`)
